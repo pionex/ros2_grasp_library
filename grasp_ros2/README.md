@@ -1,1 +1,0 @@
-../grasp_tutorials/doc/grasp_planner.rst
