@@ -56,6 +56,16 @@ int main(int argc, char** argv)
   double charuco_board_marker_size = parameters_client->get_parameter("charuco_board_marker_size", 0.022);
   double charuco_board_square_size = parameters_client->get_parameter("charuco_board_square_size", 0.037);
 
+  RCLCPP_INFO(node->get_logger(), "Pattern: %s", pattern.c_str());
+  RCLCPP_INFO(node->get_logger(), "Image Topic: %s", image_topic.c_str());
+  RCLCPP_INFO(node->get_logger(), "Camera Info Topic: %s", camera_info_topic.c_str());
+  RCLCPP_INFO(node->get_logger(), "Width: %d", width);
+  RCLCPP_INFO(node->get_logger(), "Height: %d", height);
+  RCLCPP_INFO(node->get_logger(), "Dictionary: %s", dictionary.c_str());
+  RCLCPP_INFO(node->get_logger(), "Charuco Marker Size: %lf", charuco_board_marker_size);
+  RCLCPP_INFO(node->get_logger(), "Charuco Square Size: %lf", charuco_board_square_size);
+
+
   PoseEstimator pe(node, pattern, image_topic, camera_info_topic, publish_image_topic, width, height, dictionary,
                    chessboard_square_size, circle_grid_seperation, aruco_board_marker_size,
                    aruco_board_marker_seperation, charuco_board_marker_size, charuco_board_square_size);

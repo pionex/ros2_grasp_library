@@ -79,7 +79,7 @@ PoseEstimator::PoseEstimator(std::shared_ptr<rclcpp::Node>& node, std::string pa
     RCLCPP_ERROR(node_->get_logger(), "Invalid pattern input: %s.", pattern);
     calibration_pattern_ = NOT_EXISTING;
   }
-
+  
   switch (calibration_pattern_)
   {
     case CHESSBOARD:
@@ -93,6 +93,15 @@ PoseEstimator::PoseEstimator(std::shared_ptr<rclcpp::Node>& node, std::string pa
       break;
     case CHARUCO:
       image_sub_ = it_.subscribe(image_topic, 1, &PoseEstimator::imageCB_CHARUCO, this);
+      RCLCPP_INFO(node->get_logger(), "Setting CHARUCO!", pattern.c_str());
+      RCLCPP_INFO(node->get_logger(), "Pattern: %s", pattern.c_str());
+	  RCLCPP_INFO(node->get_logger(), "Image Topic: %s", image_topic.c_str());
+	  RCLCPP_INFO(node->get_logger(), "Camera Info Topic: %s", camera_info_topic.c_str());
+	  RCLCPP_INFO(node->get_logger(), "Width: %d", width_);
+	  RCLCPP_INFO(node->get_logger(), "Height: %d", height_);
+	  RCLCPP_INFO(node->get_logger(), "Dictionary: %s", dictionary.c_str());
+	  RCLCPP_INFO(node->get_logger(), "Charuco Marker Size: %lf", charuco_board_marker_size_);
+	  RCLCPP_INFO(node->get_logger(), "Charuco Square Size: %lf", charuco_board_square_size_);
       break;
     default:
       break;

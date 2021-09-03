@@ -22,16 +22,22 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
 
-    # .yaml file for configuring the parameters
-    yaml = os.path.join(
-        get_package_share_directory('handeye_target_detection'), 
-            'launch', 'pose_estimation.yaml'
-    )
+    if os.getenv('SNAP_DATA'):
+      print('Getting Snap Config')
+      yaml = os.path.join(os.getenv('SNAP_DATA'), 'handeye', 'pose_estimation.yaml')
+      rviz = os.path.join(os.getenv('SNAP_DATA'), 'handeye', 'handeye.rviz')
 
-    rviz = os.path.join(
-        get_package_share_directory('handeye_target_detection'), 
-            'cfg', 'handeye.rviz'
-    )
+    else:
+    # .yaml file for configuring the parameters
+      yaml = os.path.join(
+          get_package_share_directory('handeye_target_detection'), 
+              'launch', 'pose_estimation.yaml'
+      )
+
+      rviz = os.path.join(
+          get_package_share_directory('handeye_target_detection'), 
+              'cfg', 'handeye.rviz'
+      )
 
     return launch.LaunchDescription([
 
