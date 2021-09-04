@@ -40,7 +40,7 @@ int main(int argc, char** argv)
   }
 
   // Get parameters
-  std::string pattern = parameters_client->get_parameter<std::string>("pattern", "ARUCO");
+  std::string pattern = parameters_client->get_parameter<std::string>("pattern", "CHARUCO");
   std::string image_topic = parameters_client->get_parameter<std::string>("image_topic", "/camera/color/image_raw");
   std::string camera_info_topic =
       parameters_client->get_parameter<std::string>("camera_info_topic", "/camera/color/camera_info");
