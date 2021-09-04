@@ -48,13 +48,13 @@ int main(int argc, char** argv)
       parameters_client->get_parameter<std::string>("publish_image_topic", "/image/detected");
   int width = parameters_client->get_parameter("width", 5);
   int height = parameters_client->get_parameter("height", 7);
-  std::string dictionary = parameters_client->get_parameter<std::string>("dictionary", "DICT_4X4_50");
+  std::string dictionary = parameters_client->get_parameter<std::string>("dictionary", "DICT_6X6_250");
   double chessboard_square_size = parameters_client->get_parameter("chessboard_square_size", 0.026);
   double circle_grid_seperation = parameters_client->get_parameter("circle_grid_seperation", 0.035);
   double aruco_board_marker_size = parameters_client->get_parameter("aruco_board_marker_size", 0.035);
   double aruco_board_marker_seperation = parameters_client->get_parameter("aruco_board_marker_seperation", 0.007);
-  double charuco_board_marker_size = parameters_client->get_parameter("charuco_board_marker_size", 0.022);
-  double charuco_board_square_size = parameters_client->get_parameter("charuco_board_square_size", 0.037);
+  double charuco_board_marker_size = parameters_client->get_parameter("charuco_board_marker_size", 0.021);
+  double charuco_board_square_size = parameters_client->get_parameter("charuco_board_square_size", 0.035);
 
   RCLCPP_INFO(node->get_logger(), "Pattern: %s", pattern.c_str());
   RCLCPP_INFO(node->get_logger(), "Image Topic: %s", image_topic.c_str());
