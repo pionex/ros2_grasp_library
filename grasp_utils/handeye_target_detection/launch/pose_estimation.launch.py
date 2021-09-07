@@ -43,7 +43,7 @@ def generate_launch_description():
 
         launch_ros.actions.Node(
             package='handeye_target_detection', node_executable='pose_estimation', 
-            output='screen', arguments=['__params:='+yaml]),
+            output='screen', parameters = [yaml]),
 
         launch_ros.actions.Node(
             package='rviz2', node_executable='rviz2', 
